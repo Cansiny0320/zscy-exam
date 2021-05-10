@@ -2,7 +2,8 @@
  * 所有的接口请求
  */
 import { post } from "./http";
+import { stuNum } from "./config";
 
-export const getExam = (stuNum) => post("/examSchedule", { stuNum });
+export const fetchExam = () => post("/examSchedule", { stuNum });
 
-export const getReExam = (stuNum) => post("/examReexam", { stuNum });
+export const fetchReExam = () => post("/examReexam", { stuNum });
