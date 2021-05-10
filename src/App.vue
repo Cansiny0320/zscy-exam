@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :class="{ dark: dark }">
     <Card
       :examInfo="examInfo"
       :isLast="index === examInfos.length - 1"
@@ -19,6 +19,7 @@ export default {
     Card,
   },
   setup() {
+    const dark = localStorage.getItem("uiType") === "1";
     let examInfos = ref([])
     async function getExam() {
       const { data: exam } = await fetchExam();
@@ -26,15 +27,19 @@ export default {
       examInfos.value = [].concat(exam.data).concat(reExam.data)
     }
     getExam()
-    return { examInfos }
+    return { examInfos, dark }
   }
 };
 </script>
 
 <style lang="scss">
-#app {
+.container {
   width: 100%;
+  min-height: 100vh;
   padding: 10px 0;
   background-color: #f8f9fc;
+}
+.dark {
+  background-color: #1d1d1d;
 }
 </style>

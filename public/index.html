@@ -18,9 +18,26 @@
   </noscript>
   <div id="app"></div>
   <script>
-    const stuNum = document.location.href.split("stuNum=")[1];
-    if (stuNum) {
+
+    function getParamsFromURL(url) {
+      if ('undefined' == url) {
+        return {};
+      }
+      let paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+      let paraObj = {};
+      for (let i = 0; i < paraString.length; i++) {
+        let j = paraString[i];
+        paraObj[j.substring(0, j.indexOf("="))] = j.substring(j.indexOf("=") + 1, j.length);
+      }
+      return paraObj;
+    }
+    const params = this.getParamsFromURL(window.location.href);
+
+    const stuNum = params.stuNum
+    const uiType = params.uiType
+    if (stuNum && uiType) {
       localStorage.setItem('stuNum', stuNum)
+      localStorage.setItem('uiType', uiType)
     }
   </script>
   <!-- built files will be auto injected -->

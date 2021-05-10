@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="{ last: isLast }">
+  <div class="card" :class="{ last: isLast, dark: dark }">
     <div class="time_info">
       <div class="week">
         {{ chineseWeekDate(examInfo.week, examInfo.weekday) }}
@@ -33,7 +33,8 @@ export default {
   name: "card",
   props: {
     examInfo: Object,
-    isLast: Boolean
+    isLast: Boolean,
+    dark: Boolean
   },
   methods: {
     chineseWeekDate(week, weekday) {
@@ -193,6 +194,21 @@ export default {
         background-image: url('../assets/images/place.png');
       }
     }
+  }
+}
+.dark {
+  .content {
+    background-color: rgba(129, 58, 58, 0.7);
+  }
+  .info {
+    color: #80f0f0f2;
+  }
+  .week,
+  .main {
+    color: #fff;
+  }
+  .last_day {
+    color: #0bccf0;
   }
 }
 </style>
