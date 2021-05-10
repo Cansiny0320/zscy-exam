@@ -3,7 +3,7 @@
  */
 
 import axios from "axios";
-import { baseURL, token } from "./config";
+import { baseURL } from "./config";
 axios.defaults.baseURL = baseURL;
 // axios.defaults.withCredentials = true;
 axios.defaults.timeout = 6000;
@@ -12,7 +12,7 @@ axios.defaults.timeout = 6000;
 axios.interceptors.request.use(
   (config) => {
     config.headers = {
-      token: token,
+      "Content-Type": "application/x-www-form-urlencoded",
     };
     return config;
   },

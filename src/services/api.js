@@ -1,9 +1,16 @@
 /**
  * 所有的接口请求
  */
-import { post } from "./http";
 import { stuNum } from "./config";
+import { post } from "./http";
 
-export const fetchExam = () => post("/examSchedule", { stuNum });
+const transformRequest = (jsonData = {}) =>
+  Object.entries(jsonData)
+    .map((x) => `${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`)
+    .join("&");
 
-export const fetchReExam = () => post("/examReexam", { stuNum });
+export const fetchExam = () =>
+  post("/examSchedule", transformRequest({ stuNum }));
+
+export const fetchReExam = () =>
+  post("/examReexam", transformRequest({ stuNum }));
