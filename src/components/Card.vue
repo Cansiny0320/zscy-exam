@@ -1,23 +1,27 @@
 <template>
-  <div class="card">
+  <div class="card" :class="{ last: isLast }">
     <div class="time_info">
-      <div class="week">{{ chineseWeekDate(week, weekday) }}</div>
-      <div class="last_day">{{ lastDay(date) }}</div>
+      <div class="week">
+        {{ chineseWeekDate(examInfo.week, examInfo.weekday) }}
+      </div>
+      <div class="last_day">{{ lastDay(examInfo.date) }}</div>
     </div>
     <div class="content">
       <div class="main">
-        <div class="subject">{{ course }}</div>
-        <div class="type">{{ type }}</div>
+        <div class="subject">{{ examInfo.course }}</div>
+        <div class="type">{{ examInfo.type }}</div>
       </div>
       <div class="info time">
         <div class="icon"></div>
         <div class="text">
-          {{ dateString(date) }} | {{ begin_time }}-{{ end_time }}
+          {{ dateString(examInfo.date) }} | {{ examInfo.begin_time }}-{{
+            examInfo.end_time
+          }}
         </div>
       </div>
       <div class="info place">
         <div class="icon"></div>
-        <div class="text">{{ classroom }} | {{ seat }}号</div>
+        <div class="text">{{ examInfo.classroom }} | {{ examInfo.seat }}号</div>
       </div>
     </div>
   </div>
@@ -28,16 +32,8 @@ import { now, interval } from '../shared/date'
 export default {
   name: "card",
   props: {
-    course: String,
-    classroom: String,
-    seat: String,
-    week: String,
-    weekday: String,
-    begin_time: String,
-    end_time: String,
-    date: String,
-    type: String,
-    status: String
+    examInfo: Object,
+    isLast: Boolean
   },
   methods: {
     chineseWeekDate(week, weekday) {
