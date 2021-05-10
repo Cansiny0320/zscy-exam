@@ -12,7 +12,7 @@
       <div class="info time">
         <div class="icon"></div>
         <div class="text">
-          {{ date(date) }} | {{ begin_time }}-{{ end_time }}
+          {{ dateString(date) }} | {{ begin_time }}-{{ end_time }}
         </div>
       </div>
       <div class="info place">
@@ -45,7 +45,6 @@ export default {
         "1": '一',
         "2": '二',
         "3": '三',
-        "3": '三',
         "4": '四',
         "5": '五',
         "6": '六',
@@ -69,7 +68,6 @@ export default {
         "1": '周一',
         "2": '周二',
         "3": '周三',
-        "3": '周三',
         "4": '周四',
         "5": '周五',
         "6": '周六',
@@ -88,7 +86,7 @@ export default {
         return '已结束'
       }
     },
-    date(date) {
+    dateString(date) {
       const time = new Date(date)
       const month = time.getMonth + 1;
       const day = time.getDate();
