@@ -23,9 +23,6 @@ export default {
     async function getExam() {
       const { data: exam } = await fetchExam();
       const { data: reExam } = await fetchReExam()
-      for (let i = 0; i < 5; i++) {
-        exam.data.push(exam.data[0])
-      }
       examInfos.value = [].concat(exam.data).concat(reExam.data)
     }
     getExam()
