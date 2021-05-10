@@ -88,7 +88,7 @@ export default {
     },
     dateString(date) {
       const time = new Date(date)
-      const month = time.getMonth + 1;
+      const month = time.getMonth() + 1;
       const day = time.getDate();
       return `${month}月${day}日`
     }
