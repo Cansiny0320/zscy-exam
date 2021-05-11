@@ -28,67 +28,67 @@
 </template>
 
 <script>
-import { now, interval } from '../shared/date'
+import { now, interval } from "../shared/date";
 export default {
   name: "card",
   props: {
     examInfo: Object,
     isLast: Boolean,
-    dark: Boolean
+    dark: Boolean,
   },
   methods: {
     chineseWeekDate(week, weekday) {
       const cnWeek = {
-        "1": '一周',
-        "2": '二周',
-        "3": '三周',
-        "4": '四周',
-        "5": '五周',
-        "6": '六周',
-        "7": '七周',
-        "8": '八周',
-        "9": '九周',
-        "10": '十周',
-        "11": '十一周',
-        "12": '十二周',
-        "13": '十三周',
-        "14": '十四周',
-        "15": '十五周',
-        "16": '十六周',
-        "17": '十七周',
-        "18": '十八周',
-        "19": '十九周',
-        "20": '二十周',
-        "21": '二十一周',
-      }
+        1: "一周",
+        2: "二周",
+        3: "三周",
+        4: "四周",
+        5: "五周",
+        6: "六周",
+        7: "七周",
+        8: "八周",
+        9: "九周",
+        10: "十周",
+        11: "十一周",
+        12: "十二周",
+        13: "十三周",
+        14: "十四周",
+        15: "十五周",
+        16: "十六周",
+        17: "十七周",
+        18: "十八周",
+        19: "十九周",
+        20: "二十周",
+        21: "二十一周",
+      };
       const cnWeekDay = {
-        "1": '周一',
-        "2": '周二',
-        "3": '周三',
-        "4": '周四',
-        "5": '周五',
-        "6": '周六',
-        "7": '周日',
-      }
-      return cnWeek[week] + cnWeekDay[weekday]
+        1: "周一",
+        2: "周二",
+        3: "周三",
+        4: "周四",
+        5: "周五",
+        6: "周六",
+        7: "周日",
+      };
+      return cnWeek[week] + cnWeekDay[weekday];
     },
     lastDay(date) {
-      const today = now()
-      const lastDay = interval(today, date)
+      const today = now();
+      const lastDay = interval(today, date) + 1;
       if (lastDay) {
-        return `还剩${lastDay}天考试`
+        return `还剩${lastDay}天考试`;
       } else if (lastDay === 0) {
-        return '今天考试'
+        return "今天考试";
       } else {
-        return '考试已结束'
+        return "考试已结束";
       }
     },
     dateString(date) {
-      const time = new Date(date)
+      const time = new Date(date);
       const month = time.getMonth() + 1;
       const day = time.getDate();
-      return `${month}月${day}日`
-    }
+      return `${month}月${day}日`;
+    },
   },
 };
 </script>
@@ -106,7 +106,7 @@ export default {
     }
   }
   &::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     width: 0px;
@@ -116,7 +116,7 @@ export default {
     top: 7px;
   }
   &::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     z-index: 1;
@@ -186,12 +186,12 @@ export default {
 
     &.time {
       .icon {
-        background-image: url('../assets/images/time.png');
+        background-image: url("../assets/images/time.png");
       }
     }
     &.place {
       .icon {
-        background-image: url('../assets/images/place.png');
+        background-image: url("../assets/images/place.png");
       }
     }
   }
