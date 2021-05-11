@@ -6,8 +6,7 @@ function resolve(dir) {
 module.exports = {
   productionSourceMap: false,
   outputDir: "build",
-  publicPath:
-    process.env.NODE_ENV === "production" ? "/nineteenth-committee-fe/" : "./",
+  publicPath: process.env.NODE_ENV === "production" ? "/zscy-exam/" : "./",
   chainWebpack: (config) => {
     config.resolve.alias
       .set("@", resolve("src"))
