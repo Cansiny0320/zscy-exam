@@ -33,9 +33,14 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
+#app {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+}
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   padding: 10px 0;
   background-color: #f8f9fc;
 }
