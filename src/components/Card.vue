@@ -198,7 +198,7 @@ export default {
 }
 .dark {
   .content {
-    background-color: #813a3a3a;
+    background-color: rgba(58, 58, 58, 0.5625);
   }
   .info {
     color: #80f0f0f2;
