@@ -1,24 +1,36 @@
-# zscy-exam
+## 掌上重邮考试/补考页面
 
-## Project setup
-```
-yarn install
+### 整体结构
+
+为了方便只展示 src 目录下的文件
+
+```bash
+src
+ ├── App.vue
+ ├── assets
+ │   ├── css
+ │   │   └── reset.css
+ │   └── images
+ │       ├── place.png
+ │       └── time.png
+ ├── components
+ │   └── Card.vue
+ ├── main.js
+ ├── services
+ │   ├── api.js
+ │   ├── axios.js
+ │   ├── config.js
+ │   └── http.js
+ └── shared
+     └── date.js
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## 技术栈
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- vue
+- axios
 
-### Lints and fixes files
-```
-yarn lint
-```
+## 项目运行
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+使用 [Vue CLI](https://cli.vuejs.org/) 创建，按照标准即可完成
+
