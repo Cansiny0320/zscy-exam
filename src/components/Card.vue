@@ -4,7 +4,12 @@
       <div class="week">
         {{ chineseWeekDate(examInfo.week, examInfo.weekday) }}
       </div>
-      <div class="last_day">{{ lastDay(examInfo.date) }}</div>
+      <div
+        class="last_day"
+        :class="{ gray: lastDay(examInfo.date) === '考试已结束' }"
+      >
+        {{ lastDay(examInfo.date) }}
+      </div>
     </div>
     <div class="content">
       <div class="main">
@@ -74,10 +79,10 @@ export default {
     },
     lastDay(date) {
       const today = now();
-      const lastDay = interval(today, date) + 1;
-      if (lastDay) {
-        return `还剩${lastDay}天考试`;
-      } else if (lastDay === 0) {
+      const intervalDays = interval(today, date) + 1;
+      if (intervalDays > 0) {
+        return `还剩${intervalDays}天考试`;
+      } else if (intervalDays === 0) {
         return "今天考试";
       } else {
         return "考试已结束";
@@ -210,5 +215,8 @@ export default {
   .last_day {
     color: #0bccf0;
   }
+}
+.gray {
+  color: #999 !important;
 }
 </style>
