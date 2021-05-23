@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { fetchExam, fetchReExam } from './services/api'
+import { ref } from "vue";
+import { fetchExam, fetchReExam } from "./services/api";
 import Card from "./components/Card";
 export default {
   name: "App",
@@ -20,22 +20,22 @@ export default {
   },
   setup() {
     const dark = localStorage.getItem("uiType") === "1";
-    let examInfos = ref([])
+    let examInfos = ref([]);
     async function getExam() {
       const { data: exam } = await fetchExam();
-      const { data: reExam } = await fetchReExam()
-      examInfos.value = [].concat(exam.data).concat(reExam.data)
+      const { data: reExam } = await fetchReExam();
+      examInfos.value = [].concat(exam.data).concat(reExam.data);
     }
-    getExam()
-    return { examInfos, dark }
-  }
+    getExam();
+    return { examInfos, dark };
+  },
 };
 </script>
 
 <style lang="scss">
 #app {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 .container {
   box-sizing: border-box;
