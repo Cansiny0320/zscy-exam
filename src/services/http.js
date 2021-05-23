@@ -3,28 +3,36 @@
  */
 import axios from "./axios";
 
-export function get(url, params = {}) {
-  return axios.get(url, { params }).catch((error) => {
+export async function get(url, params = {}) {
+  try {
+    return axios.get(url, { params });
+  } catch (error) {
     throw new Error(error);
-  });
+  }
 }
 
-export function post(url, data = {}, config = {}) {
-  return axios.post(url, data, config).catch((error) => {
+export async function post(url, data = {}, config = {}) {
+  try {
+    return axios.post(url, data, config);
+  } catch (error) {
     throw new Error(error);
-  });
+  }
 }
 
-export function patch(url, data = {}, config = {}) {
-  return axios.patch(url, data, config).catch((error) => {
+export async function patch(url, data = {}, config = {}) {
+  try {
+    return axios.patch(url, data, config);
+  } catch (error) {
     throw new Error(error);
-  });
+  }
 }
 
-export function put(url, data) {
-  return axios.put(url, data).catch((error) => {
+export async function put(url, data) {
+  try {
+    return axios.put(url, data);
+  } catch (error) {
     throw new Error(error);
-  });
+  }
 }
 
 export function del(url) {
